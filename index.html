@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>js-assignment</title>
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+                /* box-sizing: border-box; */
+            }
+            .head{
+                background: tan;
+                text-align: center;
+                color: black;
+                height: 46px;
+            }
+            input{
+                padding: 16px;
+                margin: 27px;
+                padding-left: 43px;
+                padding-right: 43px;
+                border-radius: 10px;
+            }
+            form{
+                display: flex;
+                justify-content: center;
+            }
+            #pharagraph{
+                margin-top: 26px;
+                padding: 6px;
+                height: 196px;
+                width: 375px;
+                border-radius: 10px;
+                border: 2px solid black;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+        <h1 class="head">js-assignment</h1>
+        </div>
+        <form>
+            
+            
+            <textarea id="pharagraph" placeholder="Enter The Text" value=""></textarea>
+
+        <div>
+            <input type="button" value="GetGmail" id="gettGmail" onclick="getGmail()"/>
+        </div>
+        <div>
+            <input type="button" value="GetName"  onclick="getName()"/>
+        </div>
+        <div>
+            <input type="button" value="GetUrl"  onclick="getUrl()"/>
+        </div>
+        </form>
+    </body>
+</html>
+<script>
+
+
+    
+
+    function getGmail(){
+        var pp=document.getElementById('pharagraph');
+        var phara=pp.value;
+        // console.log('phara---->',phara)
+        var email=phara.split(' ');
+        // console.log('email--->',email);
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var allmail=[];
+        for(var i=0;i<email.length;i++){
+        var validemail=mailformat.test(email[i]);
+        if(validemail){
+         allmail.push(email[i]);
+        }
+        }
+        // console.log('email id--->',allmail);
+        var orginalMail=[];
+        for(var j=0;j<allmail.length;j++){
+            if(orginalMail.indexOf(allmail[j])==-1){
+                orginalMail.push(allmail[j]);
+            }
+        }
+        console.log('email--->',orginalMail);
+
+
+    }
+    function getName(){
+
+        var pp=document.getElementById('pharagraph');
+        var phara=pp.value;
+        // console.log('phara---->',phara);
+        var email=phara.split(' ');
+        // console.log('email--->',email);
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var allmail=[];
+        for(var i=0;i<email.length;i++){
+        var validemail=mailformat.test(email[i]);
+        if(validemail){
+         allmail.push(email[i]);
+        }
+        }
+        // console.log('email id--->',allmail);
+        var orginalMail=[];
+        for(var j=0;j<allmail.length;j++){
+            if(orginalMail.indexOf(allmail[j])==-1){
+                orginalMail.push(allmail[j]);
+            }
+        }
+        // console.log('email--->',orginalMail);
+        for(var k=0;k<orginalMail.length;k++){
+            var sp=orginalMail[k].split('@');
+            // console.log('name--->',sp[0]);
+            if(sp[0].length>=18){
+                var ss=sp[0].substr(0,18)+"...";
+                console.log('name--->',ss);
+            }else{ 
+            console.log('name--->',sp[0]);
+            }
+        }
+       
+        
+        
+    }
+    function getUrl(){
+        var pp=document.getElementById('pharagraph');
+        var phara=pp.value;
+        // console.log('phara---->',phara);
+        var spliting= phara.split(' ');
+        var urlformat = /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/;
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var orginalurl=[];
+        // console.log('split---->',spliting);
+        for(var i=0;i<spliting.length;i++){
+        var validurl=urlformat.test(spliting[i])
+        if(validurl){
+        var eee=mailformat.test(spliting[i]);
+            if(eee==false)
+            orginalurl.push(spliting[i]);    
+        }
+        }
+        // console.log('url--->',orginalurl);
+        var container=[];
+        for(var i=0;i<orginalurl.length;i++){
+            if(container.includes(orginalurl[i])==false){
+                container.push(orginalurl[i]);
+            }
+        }
+        console.log('container--->',container);
+        
+    }
+
+
+</script>
